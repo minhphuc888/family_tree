@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="data.js"></script>
     <script src="familytree.js"></script>
     <style>
        /*CSS*/
@@ -116,25 +117,8 @@ let family = new FamilyTree(document.getElementById("tree"), {
 //     family.collapse(1, [6, 9, 10]);
 // });
 
-
-const data = mappingData([
-    { id: 1, pids: [2], name: " Nguyễn Minh Phúc", yearOfBirth: 1993, img: "https://cdn.balkan.app/shared/m60/1.jpg", description: 'lodfas' },
-    { id: 2, pids: [1], name: " Nguyễn Minh Nastya",  gender: "female", yearOfBirth: 1990, yearOfDeath: 2002, img: "https://cdn.balkan.app/shared/w60/5.jpg" },
-    { id: 5, pids: [3], name: " Nguyễn Minh Polya", yearOfBirth: 1990, gender: "male", img: "https://cdn.balkan.app/shared/w60/3.jpg" , bdate: 1800, ddate: 1900 },
-    { id: 3, pids: [5], mid: 1, fid: 2, yearOfBirth: 1990 , name: " Nguyễn Minh Isai", img: "https://cdn.balkan.app/shared/m60/7.jpg"},
-    { id: 11, mid: 1,   fid: 2, name: " Nguyễn Minh Maya", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w60/1.jpg" },
-    { id: 12,  mid: 1,   fid: 2, yearOfBirth: 1990 , name: " Nguyễn Minh Isai", img: "https://cdn.balkan.app/shared/m60/7.jpg"},
-    { id: 13, mid: 1,   fid: 2, name: " Nguyễn Minh Maya", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w60/1.jpg" },
-    { id: 14,  mid: 1,   fid: 2, yearOfBirth: 1990 , name: " Nguyễn Minh Isai", img: "https://cdn.balkan.app/shared/m60/7.jpg"},
-    { id: 4, mid: 1, fid: 2, name: " Nguyễn Minh Maya", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w60/1.jpg" },
-    { id: 6, fid: 3, mid: 5, name: " Nguyễn Minh Yuliya", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w30/6.jpg" },
-    { id: 7, mid: 4, name: " Nguyễn Minh Mariya", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/m30/1.jpg" },
-    { id: 8, mid: 4, name: " Nguyễn Minh Savin", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w30/1.jpg" },
-    { id: 9, mid: 6, name: " Nguyễn Minh Marie Christine", yearOfBirth: 1990, img: "https://cdn.balkan.app/shared/w10/1.jpg" },
-    { id: 10, mid: 8, name: " Nguyễn Minh Marie Christine", yearOfBirth: 1990},
-])
-
-family.load(data);
+const dataMapping = mappingData(data)
+family.load(dataMapping);
 
 family.on('render-link', function (sender, args) {
     if (args.cnode.ppid != undefined) {
@@ -179,3 +163,6 @@ function getOptions(){
     </script>
 </body>
 </html>
+
+
+<!-- https://minhphuc888.github.io/family_tree/tree3.html -->
