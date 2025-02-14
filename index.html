@@ -38,8 +38,8 @@
        //JavaScript 
 var options = getOptions();
 
-let [cx, cy] = [0, 0];
-
+function loadDefaultConfig() {
+    let [cx, cy] = [0, 0];
 let plus =
     `<circle cx="${cx}" cy="${cy}" r="15" fill="#6D8FB2" stroke="#fff" stroke-width="1"></circle>
     <line x1="-11" y1="0" x2="11" y2="0" stroke-width="1" stroke="#fff"></line>
@@ -62,9 +62,9 @@ FamilyTree.templates.main.node =
 
 FamilyTree.templates.main.link = '<path stroke-linejoin="round" stroke="#6D8FB2" stroke-width="1px" fill="none" d="{edge}" />';
 FamilyTree.templates.main.field_0 = '<text ' + FamilyTree.attr.width + ' ="250" style="font-size: 17px;" fill="gray" x="125" y="18" text-anchor="middle">{val}</text>';
-FamilyTree.templates.main.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="gray" x="120" y="50">Ngày sinh:{val}</text>`;
-FamilyTree.templates.main.field_2 = `<text ${FamilyTree.attr.width}="150" style="font-size: 13px;" fill="gray" x="120" y="70">Tuổi: {val}</text>`;
-FamilyTree.templates.main.field_3 = '<text ' + FamilyTree.attr.width + ' ="100" style="font-size: 13px;" fill="gray" x="120" y="90">{val}</text>';
+FamilyTree.templates.main.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="gray" x="120" y="50">Sinh năm:{val}</text>`;
+FamilyTree.templates.main.field_2 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="gray" x="120" y="70">Tuổi: {val}</text>`;
+FamilyTree.templates.main.field_3 = '<text ' + FamilyTree.attr.width + ' ="250" style="font-size: 13px;" fill="gray" x="120" y="90">{val}</text>';
 FamilyTree.templates.main.img_0 =         
         `<image class="filter-gray" preserveAspectRatio="xMidYMid slice" clip-path="url(#ulaImg)" xlink:href="{val}" x="15" y="35" width="90" height="90"></image>`;
 FamilyTree.templates.main.plus = plus;
@@ -74,7 +74,7 @@ FamilyTree.templates.main_male = Object.assign({}, FamilyTree.templates.main);
 FamilyTree.templates.main_male.node = '<rect x="0" y="0" height="{h}" width="{w}" fill="#ffffff" stroke-width="3" stroke="#6bb4df" rx="5" ry="5"></rect>' +
     '<rect x="0" y="0" height="25" width="{w}" fill="#6bb4df" stroke-width="1" stroke="#6bb4df" rx="5" ry="5"></rect>';
 FamilyTree.templates.main_male.field_0 ='<text ' + FamilyTree.attr.width + ' ="250" style="font-size: 17px;" fill="white" x="125" y="18" text-anchor="middle">{val}</text>';
-FamilyTree.templates.main_male.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="#19447E" x="120" y="50">Ngày sinh:{val}</text>`;
+FamilyTree.templates.main_male.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="#19447E" x="120" y="50">Sinh năm:{val}</text>`;
 FamilyTree.templates.main_male.field_2 = `<text ${FamilyTree.attr.width}="150" style="font-size: 13px;" fill="#19447E" x="120" y="70">Tuổi: {val}</text>`;
 FamilyTree.templates.main_male.img_0 =         
         `<image preserveAspectRatio="xMidYMid slice" clip-path="url(#ulaImg)" xlink:href="{val}" x="15" y="35" width="90" height="90"></image>`;
@@ -94,6 +94,58 @@ FamilyTree.templates.main_female.node = `<rect x="0" y="0" height="{h}" width="{
 //     '<text ' + FamilyTree.attr.width + ' ="150" style="font-size: 16px;" fill="#6D8FB2" x="50" y="110" text-anchor="middle">{val}</text>';
 // FamilyTree.templates.tweet.field_1 =
 //     '<text ' + FamilyTree.attr.width + ' ="230" style="font-size: 14px;" fill="#6D8FB2" x="50" y="130" text-anchor="middle">{val}</text>';
+}
+
+function loadDefaultConfig2() {
+    let [cx, cy] = [0, 0];
+let plus =
+    `<circle cx="${cx}" cy="${cy}" r="15" fill="#6D8FB2" stroke="#fff" stroke-width="1"></circle>
+    <line x1="-11" y1="0" x2="11" y2="0" stroke-width="1" stroke="#fff"></line>
+    <line x1="0" y1="-11" x2="0" y2="11" stroke-width="1" stroke="#fff"></line>`;
+let minus =
+    `<circle cx="${cx}" cy="${cy}" r="15" fill="#6D8FB2" stroke="#fff" stroke-width="1"></circle>
+    <line x1="-11" y1="0" x2="11" y2="0" stroke-width="1" stroke="#fff"></line>`;
+
+FamilyTree.templates.main = Object.assign({}, FamilyTree.templates.tommy);
+FamilyTree.templates.main.size = [160, 400];
+FamilyTree.templates.main.defs =
+    `<g transform="matrix(1,0,0,1,-12,-9)" id="plus">${minus}</g><g transform="matrix(1,0,0,1,-12,-9)" id="minus">${minus}</g>`;
+
+FamilyTree.templates.main.node =
+    `<rect x="0" y="0" height="{h}" width="{w}" stroke-width="3" fill="white" stroke="#b1b9be" rx="7" ry="7"></rect>
+    <clipPath id="ulaImg"><circle cx="80" cy="80" r="65" fill="#248CE6"></circle></clipPath>
+   `;
+
+FamilyTree.templates.main.link = '<path stroke-linejoin="round" stroke="#6D8FB2" stroke-width="1px" fill="none" d="{edge}" />';
+FamilyTree.templates.main.field_0 = '<text ' + FamilyTree.attr.width + ' ="250" style="font-size: 17px;" fill="gray" x="125" y="180" text-anchor="middle">{val}</text>';
+// FamilyTree.templates.main.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="gray" x="120" y="50">Ngày sinh:{val}</text>`;
+// FamilyTree.templates.main.field_2 = `<text ${FamilyTree.attr.width}="150" style="font-size: 13px;" fill="gray" x="120" y="70">Tuổi: {val}</text>`;
+// FamilyTree.templates.main.field_3 = '<text ' + FamilyTree.attr.width + ' ="100" style="font-size: 13px;" fill="gray" x="120" y="90">{val}</text>';
+FamilyTree.templates.main.img_0 =         
+        `<image class="filter-gray" preserveAspectRatio="xMidYMid slice" clip-path="url(#ulaImg)" xlink:href="{val}" x="15" y="15" width="130" height="130"></image>`;
+FamilyTree.templates.main.plus = plus;
+FamilyTree.templates.main.minus = minus;
+
+FamilyTree.templates.main_male = Object.assign({}, FamilyTree.templates.main);
+// FamilyTree.templates.main_male.node = '<rect x="0" y="0" height="{h}" width="{w}" fill="#ffffff" stroke-width="3" stroke="#6bb4df" rx="5" ry="5"></rect>';
+// FamilyTree.templates.main_male.field_0 ='<text ' + FamilyTree.attr.width + ' ="250" style="font-size: 17px;" fill="black" x="125" y="18" text-anchor="middle">{val}</text>';
+// FamilyTree.templates.main_male.field_1 = `<text ${FamilyTree.attr.width}="250" style="font-size: 13px;" fill="#19447E" x="120" y="50">Ngày sinh:{val}</text>`;
+// FamilyTree.templates.main_male.field_2 = `<text ${FamilyTree.attr.width}="150" style="font-size: 13px;" fill="#19447E" x="120" y="70">Tuổi: {val}</text>`;
+FamilyTree.templates.main_male.img_0 =         
+        `<image preserveAspectRatio="xMidYMid slice" clip-path="url(#ulaImg)" xlink:href="{val}" x="15" y="15" width="130" height="130"></image>`;
+
+
+FamilyTree.templates.main_female = Object.assign({}, FamilyTree.templates.main_male);
+FamilyTree.templates.main_female.node = `<rect x="0" y="0" height="{h}" width="{w}" fill="#ffffff" stroke-width="3" stroke="#cb4aaf" rx="5" ry="5"></rect>`;
+}
+
+
+var style = 1;
+if (style === 1) {
+    loadDefaultConfig();
+}else{
+    loadDefaultConfig2();
+}
 
 
 let family = new FamilyTree(document.getElementById("tree"), {
@@ -103,19 +155,20 @@ let family = new FamilyTree(document.getElementById("tree"), {
     template: "main",
     partnerChildrenSplitSeparation: 40,
     levelSeparation: 80,
+    orderBy: "orderId",
     nodeBinding: {
         field_0: "name",
         field_1: "year",
         field_2: "old",
-        field_3: "yearOfDeath",
+        field_3: "dayOfDeath",
         field_4: "description",
         img_0: "img", 
     }
 });
 
-// family.onInit(() => {
-//     family.collapse(1, [6, 9, 10]);
-// });
+family.onInit(() => {
+    family.collapse(3,4);
+});
 
 const dataMapping = mappingData(data)
 family.load(dataMapping);
@@ -141,10 +194,11 @@ function mappingData(data) {
     return data.map(item =>{
         return {
             ...item,
+            name: `${item.name} - ${item.id}`,
             year: item.yearOfBirth,
             old: `${item.yearOfDeath ? `${item.yearOfDeath - item.yearOfBirth}` : `${currentYear - item.yearOfBirth}`}`,
             img: item.img || "img/unknow.png",
-            yearOfDeath: item.yearOfDeath ? `Ngày giổ: ${item.yearOfDeath}` : ''
+            dayOfDeath: item.dayOfDeath ? `Ngày giỗ: ${item.dayOfDeath}` : '',
         };
     })
 }
