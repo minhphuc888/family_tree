@@ -194,7 +194,7 @@ function mappingData(data) {
     return data.map(item =>{
         return {
             ...item,
-            name: `${item.name} - ${item.id}`,
+            name: `${item.name}`,
             year: item.yearOfBirth,
             old: `${item.yearOfDeath ? `${item.yearOfDeath - item.yearOfBirth}` : `${currentYear - item.yearOfBirth}`}`,
             img: item.img || "img/unknow.png",

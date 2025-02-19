@@ -44,7 +44,7 @@ const data = [
             3
         ],
         "gender": "female",
-        "name": "Lê Thị Tùng",
+        "name": "Bà Lê Thị Tùng",
         "yearOfBirth": 1952,
         "img": "img/.jpg"
     },
